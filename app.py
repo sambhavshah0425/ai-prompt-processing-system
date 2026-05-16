@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, render_template
 from config import Config
-from database.mongo import Database
+# from database.mongo import Database
 from routes.generate import generate_bp
 
 def create_app():
@@ -8,7 +8,7 @@ def create_app():
     app.config.from_object(Config)
 
     # Initialize Database
-    Database.initialize()
+   # Database.initialize()
 
     # Register Blueprints
     app.register_blueprint(generate_bp)
