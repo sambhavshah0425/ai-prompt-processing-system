@@ -1,23 +1,4 @@
-# Environments
-.env
-.venv
-env/
 venv/
-ENV/
-
-# Byte-compiled / optimized / DLL files
+.env
 __pycache__/
-*.py[cod]
-*$py.class
-
-# IDEs / Editors
-.vscode/
-.idea/
-
-# OS generated files
-.DS_Store
-Thumbs.db
-
-# Flask
-instance/
-.webassets-cache
+*.pyc
