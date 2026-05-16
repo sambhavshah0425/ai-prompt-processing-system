@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Prompt Dashboard</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <h2>AI Engine</h2>
+                <div class="pulse-dot"></div>
+            </div>
+            <ul class="nav-links">
+                <li class="active" data-target="single-view">Single Prompt</li>
+                <li data-target="batch-view">Batch Process</li>
+                <li data-target="history-view">History</li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Single Prompt View -->
+            <section id="single-view" class="view-section active">
+                <header>
+                    <h1>Generate Response</h1>
+                    <p>Enter a prompt to generate a single AI response dynamically.</p>
+                </header>
+                <div class="card glass">
+                    <form id="single-form">
+                        <div class="input-group">
+                            <label for="single-input">User Input</label>
+                            <textarea id="single-input" placeholder="e.g. How much should I score in each subject to pass CA final?" required></textarea>
+                        </div>
+                        <button type="submit" class="btn primary-btn">Generate <span class="spinner" id="single-spinner"></span></button>
+                    </form>
+                </div>
+                <div id="single-result-container" class="result-container hidden">
+                    <h3>Response</h3>
+                    <div class="card glass result-card" id="single-result"></div>
+                </div>
+            </section>
+
+            <!-- Batch Process View -->
+            <section id="batch-view" class="view-section hidden">
+                <header>
+                    <h1>Batch Processing</h1>
+                    <p>Process multiple inputs asynchronously.</p>
+                </header>
+                <div class="card glass">
+                    <form id="batch-form">
+                        <div id="batch-inputs-container">
+                            <div class="input-group batch-row">
+                                <label>Input 1</label>
+                                <div class="row-flex">
+                                    <input type="text" class="batch-input" placeholder="e.g. How to pass CA final?" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button-row">
+                            <button type="button" id="add-input-btn" class="btn secondary-btn">+ Add Input</button>
+                            <button type="submit" class="btn primary-btn">Run Batch <span class="spinner" id="batch-spinner"></span></button>
+                        </div>
+                    </form>
+                </div>
+                <div id="batch-result-container" class="result-container hidden">
+                    <h3>Batch Responses</h3>
+                    <div id="batch-results-list"></div>
+                </div>
+            </section>
+
+            <!-- History View -->
+            <section id="history-view" class="view-section hidden">
+                <header>
+                    <h1>Request History</h1>
+                    <p>View past generated prompts and responses.</p>
+                    <button id="refresh-history-btn" class="btn icon-btn">↻ Refresh</button>
+                </header>
+                <div class="history-list" id="history-container">
+                    <div class="loader">Loading history...</div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
