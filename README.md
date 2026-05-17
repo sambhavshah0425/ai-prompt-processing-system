@@ -134,3 +134,7 @@ curl -X POST http://localhost:5000/generate-batch \
 - **Dockerization**: Include a `Dockerfile` and `docker-compose.yml` for effortless environment orchestration.
 - **Authentication**: Secure the endpoints using JWT (JSON Web Tokens).
 - **Task Queue**: Move heavy AI processing to background workers like Celery + Redis for ultimate scalability.
+- Authentication and user-based authorization can be implemented in future versions.
+- JWT-based secure APIs can be added.
+- User-specific history tracking can be implemented.
+- Rate limiting and caching can be added for scalability.
